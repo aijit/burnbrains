@@ -7,6 +7,7 @@ personal notes indexed with the Chinese Library Classification
 | TP302.1 | 总体设计、系统设计 |
 | TP311.1 | 程序设计 |
 | TP311.5 | 软件工程 |
+| TP368.3 | 个人计算机 |
 | TP392 | 各种专用数据库 |
 | TP393 | 计算机网络 |
 
