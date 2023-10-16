@@ -18,8 +18,10 @@
 	`$ cat test.txt `
 
 	> this
-		is
-		a
+	>
+	>	is
+	>
+	>	a
 
 - 重定向 `追加` 到文件 test.txt
 
@@ -28,10 +30,14 @@
 	`$ cat test.txt `
 	
 	> this
-	is
-	a
-	test
-	text.
+	>
+	> is
+	>
+	> a
+	>
+	> test
+	>
+	> text.
 
 - `标准输出` 重定向到 std.txt，`标准错误` 重定向到 err.txt
 
@@ -58,6 +64,7 @@ cat: a: No such file or directory
 
 - `cat` test.txt `|` xargs `echo`
 	> this is a test text.
+
 ## `grep` 模式搜索
 
 简单的模式搜索可以使用 `grep` 命令来完成。
@@ -66,11 +73,16 @@ cat: a: No such file or directory
 
 - 常用 OPTION
 	> -n 显示行号
-	-H 显示文件名
-	-h 隐藏文件名
-	-r 递归整个目录中的文件
-	-o 只显示匹配的内容
-	-E 使用扩展的正则表达式 PATTERN
+	>
+	> -H 显示文件名
+	>
+	> -h 隐藏文件名
+	>
+	> -r 递归整个目录中的文件
+	>
+	> -o 只显示匹配的内容
+	>
+	> -E 使用扩展的正则表达式 PATTERN
 
 ## `sed` 匹配替换
 
@@ -78,11 +90,16 @@ cat: a: No such file or directory
 
 - 常用 OPTIONS
 	> -i 在原文件中 in-place 执行操作
-	-e 指定 SCRIPT，可以有多个，如 `sed -e 'SCRIPT1' -e 'SCRIPT2' [INPUTFILE...]`
-	-f 从文件中加载 SCRIPT
-	-r, -E 使用扩展的正则表达式
-	-u 不使用缓存
-	-n 取消自动输出，只输出 p 操作内容
+	>
+	> -e 指定 SCRIPT，可以有多个，如 `sed -e 'SCRIPT1' -e 'SCRIPT2' [INPUTFILE...]`
+	>
+	> -f 从文件中加载 SCRIPT
+	>
+	> -r, -E 使用扩展的正则表达式
+	>
+	> -u 不使用缓存
+	>
+	> -n 取消自动输出，只输出 p 操作内容
 
 - [SCRIPT] 格式： `[addr]X[options]`
 	
@@ -97,17 +114,17 @@ cat: a: No such file or directory
 	
 	- `X` 是操作命令，`[options]` 是 `X` 命令的参数
 	
-		| `X` | `[options]` | 用例 | 说明 |
-		| ---- | ---- | :----- | :---- |
-		|  `i`  |  要插入的内容   |  `1i before` | 在第`1`行前插入一行，内容为 `before`   |
-		|  `a` |  要追加的内容   |  `1a after` | 在第`1`行后追加一行，内容为 `after`   |
-		|  `r` |  file   |  `1r  title.txt` | 读取文件 `title.txt` 中的内容，输出到第`1`行后面   |
-		|  `w` |  file   |  `/foo/w  title.txt` | 将包含 `foo` 的行输出到文件 file.txt  |
-		|  `s` |  `/`pattern`/`replace`/[g]`   |  `s/foo/bar/g` |  将所有 `foo` 替换为 `bar`，不加 `g` 则只替换每行中第一次出现的 `foo` |
-		|  `z` |  -   | `/foo/ z` |  将包含 `foo` 的行清空，保留这个空行 |
-		|  `d` |  -   | `/foo/ d` |  删除包含 `foo` 的行 |
-		|  `q` | exit-code | /foo/q 2 | 处理完包含 `foo` 的行就退出，返回错误码 `2` 到shell |
-		|  `=` |  -   | `=` |  输出所有行的行号 |
+	| `X` | `[options]` | 用例 | 说明 |
+	| ---- | ---- | :----- | :---- |
+	|  `i`  |  要插入的内容   |  `1i before` | 在第`1`行前插入一行，内容为 `before`   |
+	|  `a` |  要追加的内容   |  `1a after` | 在第`1`行后追加一行，内容为 `after`   |
+	|  `r` |  file   |  `1r  title.txt` | 读取文件 `title.txt` 中的内容，输出到第`1`行后面   |
+	|  `w` |  file   |  `/foo/w  title.txt` | 将包含 `foo` 的行输出到文件 file.txt  |
+	|  `s` |  `/`pattern`/`replace`/[g]`   |  `s/foo/bar/g` |  将所有 `foo` 替换为 `bar`，不加 `g` 则只替换每行中第一次出现的 `foo` |
+	|  `z` |  -   | `/foo/ z` |  将包含 `foo` 的行清空，保留这个空行 |
+	|  `d` |  -   | `/foo/ d` |  删除包含 `foo` 的行 |
+	|  `q` | exit-code | /foo/q 2 | 处理完包含 `foo` 的行就退出，返回错误码 `2` 到shell |
+	|  `=` |  -   | `=` |  输出所有行的行号 |
 		
 	- 对匹配的行，执行多个 `SCRIPT` 操作
 	
