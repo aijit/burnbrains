@@ -4,6 +4,7 @@ personal notes indexed with the Chinese Library Classification
 
 | 分类号 | 分类名称 |
 | --- | --- |
+| O181 | 几何基础 |
 | TP302.1 | 总体设计、系统设计 |
 | TP311.1 | 程序设计 |
 | TP311.5 | 软件工程 |
